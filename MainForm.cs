@@ -83,6 +83,14 @@ namespace osu_keypad_server {
             keyB = e.KeyCode;
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            System.Diagnostics.Process.Start("https://github.com/pethrol");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            System.Diagnostics.Process.Start("https://osu.ppy.sh/users/3054130");
+        }
+
         private void buttonLoadConfig_Click(object sender, EventArgs e) {
             var data = Config.GetInstance().LoadConfig();
             comboBoxIpAddress.Text = data.ip;
