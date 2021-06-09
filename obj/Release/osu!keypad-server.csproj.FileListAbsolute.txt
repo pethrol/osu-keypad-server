@@ -1,0 +1,13 @@
+C:\Users\Procesorek\source\repos\osu!keypad-server\bin\Release\osu!keypad-server.exe.config
+C:\Users\Procesorek\source\repos\osu!keypad-server\bin\Release\osu!keypad-server.exe
+C:\Users\Procesorek\source\repos\osu!keypad-server\bin\Release\osu!keypad-server.pdb
+C:\Users\Procesorek\source\repos\osu!keypad-server\bin\Release\WindowsInput.dll
+C:\Users\Procesorek\source\repos\osu!keypad-server\bin\Release\WindowsInput.xml
+C:\Users\Procesorek\source\repos\osu!keypad-server\obj\Release\osu!keypad-server.csprojAssemblyReference.cache
+C:\Users\Procesorek\source\repos\osu!keypad-server\obj\Release\osu_keypad_server.MainForm.resources
+C:\Users\Procesorek\source\repos\osu!keypad-server\obj\Release\osu_keypad_server.Properties.Resources.resources
+C:\Users\Procesorek\source\repos\osu!keypad-server\obj\Release\osu!keypad-server.csproj.GenerateResource.cache
+C:\Users\Procesorek\source\repos\osu!keypad-server\obj\Release\osu!keypad-server.csproj.CoreCompileInputs.cache
+C:\Users\Procesorek\source\repos\osu!keypad-server\obj\Release\osu!keypad-server.csproj.CopyComplete
+C:\Users\Procesorek\source\repos\osu!keypad-server\obj\Release\osu!keypad-server.exe
+C:\Users\Procesorek\source\repos\osu!keypad-server\obj\Release\osu!keypad-server.pdb
