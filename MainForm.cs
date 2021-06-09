@@ -74,10 +74,6 @@ namespace osu_keypad_server {
             Server.running = false;
         }
 
-        private void buttonSaveConfig_Click(object sender, EventArgs e) {
-            Config.GetInstance().SaveConfig(comboBoxIpAddress.Text, keyA, keyB);
-        }
-
         private void textBoxKeyB_KeyDown(object sender, KeyEventArgs e) {
             textBoxKeyB.Text = " : " + e.KeyCode.ToString();
             keyB = e.KeyCode;
@@ -98,6 +94,10 @@ namespace osu_keypad_server {
             keyB = data.b;
             textBoxKeyA.Text = keyA.ToString();
             textBoxKeyB.Text = keyB.ToString();
+        }
+
+        private void buttonSaveConfig_Click(object sender, EventArgs e) {
+            Config.GetInstance().SaveConfig(comboBoxIpAddress.Text, keyA, keyB);
         }
     }
 }
