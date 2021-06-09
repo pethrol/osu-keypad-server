@@ -96,7 +96,7 @@
             this.buttonStopServer.Name = "buttonStopServer";
             this.buttonStopServer.Size = new System.Drawing.Size(241, 49);
             this.buttonStopServer.TabIndex = 6;
-            this.buttonStopServer.Text = "StopServer";
+            this.buttonStopServer.Text = "Stop server";
             this.buttonStopServer.UseVisualStyleBackColor = true;
             this.buttonStopServer.Click += new System.EventHandler(this.buttonStopServer_Click);
             // 
@@ -107,7 +107,7 @@
             this.buttonSaveConfig.Name = "buttonSaveConfig";
             this.buttonSaveConfig.Size = new System.Drawing.Size(241, 23);
             this.buttonSaveConfig.TabIndex = 7;
-            this.buttonSaveConfig.Text = "Save Configuration";
+            this.buttonSaveConfig.Text = "Save configuration";
             this.buttonSaveConfig.UseVisualStyleBackColor = true;
             this.buttonSaveConfig.Click += new System.EventHandler(this.buttonSaveConfig_Click);
             // 
@@ -118,7 +118,7 @@
             this.buttonLoadConfig.Name = "buttonLoadConfig";
             this.buttonLoadConfig.Size = new System.Drawing.Size(241, 23);
             this.buttonLoadConfig.TabIndex = 8;
-            this.buttonLoadConfig.Text = "Load Configuration";
+            this.buttonLoadConfig.Text = "Load configuration";
             this.buttonLoadConfig.UseVisualStyleBackColor = true;
             this.buttonLoadConfig.Click += new System.EventHandler(this.buttonLoadConfig_Click);
             // 
@@ -138,10 +138,10 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Location = new System.Drawing.Point(194, 278);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(52, 13);
+            this.linkLabel2.Size = new System.Drawing.Size(55, 13);
             this.linkLabel2.TabIndex = 10;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "osu!proile";
+            this.linkLabel2.Text = "osu!profile";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // MainForm

@@ -42,8 +42,6 @@ namespace osu_keypad_server {
             try {
                 _socket = new Socket(ip.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
                 _socket.Bind(endPoint);
-
-
             }
             catch(Exception) {
                 MessageBox.Show("Cannot bind socket, check if the ip is correct and port 9121 is free. Code: 201");
@@ -53,6 +51,7 @@ namespace osu_keypad_server {
                 return;
             }
             running = true;
+            MessageBox.Show("Server started on "+ ip + " and port 9121");
             Task.Run(() => Receive());
         }
 
@@ -61,7 +60,6 @@ namespace osu_keypad_server {
                 if (!running) {
                     _socket.Shutdown(SocketShutdown.Both);
                     _socket.Close();
-                    
 
                     return;
                 }
