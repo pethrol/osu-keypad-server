@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace osu_keypad_server {
     public partial class MainForm : Form {
+        public Color crimson = Color.FromArgb(220, 20, 59);
+        public Color greenish = Color.FromArgb(236, 189, 22);
+        
         public MainForm() {
             #region GETTING_IPS
             string hostName = Dns.GetHostName();
@@ -46,47 +49,54 @@ namespace osu_keypad_server {
 
         }
 
-        private void buttonStartServer_Click(object sender, EventArgs e) {
-            this.Text = "► osu!keypad-server";
+  
 
-            IPAddress finalHostIp = null;
-
-            try {
-                finalHostIp = IPAddress.Parse(comboBoxIpAddress.Text);
-            }
-            catch (Exception) {
-                MessageBox.Show("Cannot parse IPv4, check if you entered it properly. Code: 202");
-            }
-
-            
-            
-            if(finalHostIp != null)
-                Server.GetInstance().Start(finalHostIp);
-        }
+        #region KEY MAPPING MANAGEMENT
         public static Keys keyA, keyB;
         private void textBoxKeyA_KeyDown(object sender, KeyEventArgs e) {
             textBoxKeyA.Text = " : "+e.KeyCode.ToString();
             keyA = e.KeyCode;
         }
 
-        private void buttonStopServer_Click(object sender, EventArgs e) {
-            this.Text = "osu!keypad server";
-            Server.running = false;
-        }
-
+        
         private void textBoxKeyB_KeyDown(object sender, KeyEventArgs e) {
             textBoxKeyB.Text = " : " + e.KeyCode.ToString();
             keyB = e.KeyCode;
         }
+        #endregion
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            System.Diagnostics.Process.Start("https://github.com/pethrol");
+        #region GUI INTERACTION
+        
+        private void buttonStartServer_Click(object sender, EventArgs e) {
+            if(Server.GetInstance().isRunning()) {
+                Server.GetInstance().Dispose();
+                this.Text = "osu!keypad-server";
+                buttonStartServer.Text = "Start server";
+                buttonStartServer.BackColor = crimson;
+                
+            }
+            else {
+                IPAddress finalHostIp = null;
+
+                try {
+                    finalHostIp = IPAddress.Parse(comboBoxIpAddress.Text);
+                }
+                catch (Exception) {
+                    MessageBox.Show("Cannot parse IPv4, check if you entered it properly. Code: 202");
+                }
+
+
+
+                if (finalHostIp != null) {
+                    Server.GetInstance().Start(finalHostIp);
+                    this.Text = "► osu!keypad-server";
+                    buttonStartServer.Text = "Stop server";
+                    buttonStartServer.BackColor = greenish;
+                    
+                }
+            }
+            System.Threading.Thread.Sleep(100);
         }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            System.Diagnostics.Process.Start("https://osu.ppy.sh/users/3054130");
-        }
-
         private void buttonLoadConfig_Click(object sender, EventArgs e) {
             var data = Config.GetInstance().LoadConfig();
             comboBoxIpAddress.Text = data.ip;
@@ -99,5 +109,16 @@ namespace osu_keypad_server {
         private void buttonSaveConfig_Click(object sender, EventArgs e) {
             Config.GetInstance().SaveConfig(comboBoxIpAddress.Text, keyA, keyB);
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            System.Diagnostics.Process.Start("https://github.com/pethrol");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            System.Diagnostics.Process.Start("https://osu.ppy.sh/users/3054130");
+        }
+
+        
+        #endregion
     }
 }

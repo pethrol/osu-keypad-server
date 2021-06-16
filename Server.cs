@@ -25,7 +25,10 @@ namespace osu_keypad_server {
         }
 
 
-        public static bool running = false;
+        private bool running = false;
+        public bool isRunning() {
+            return running;
+        }
 
         private State state;
         private Socket _socket;
@@ -51,25 +54,36 @@ namespace osu_keypad_server {
                 return;
             }
             running = true;
-            MessageBox.Show("Server started on "+ ip + " and port 9121");
+            //MessageBox.Show("Server started on "+ ip + " and port 9121");
             Task.Run(() => Receive());
         }
 
         private void Receive() {
             _socket.BeginReceiveFrom(state.buffer, 0, 4, SocketFlags.None, ref endPointFrom, recv = (ar) => {
-                if (!running) {
-                    _socket.Shutdown(SocketShutdown.Both);
-                    _socket.Close();
-
-                    return;
-                }
                 State so = (State)ar.AsyncState;
-                int bytes = _socket.EndReceiveFrom(ar, ref endPointFrom);
-                _socket.BeginReceiveFrom(so.buffer, 0, 4, SocketFlags.None, ref endPointFrom, recv, so);
+                try {
+                    int bytes = _socket.EndReceiveFrom(ar, ref endPointFrom);
+                    _socket.BeginReceiveFrom(so.buffer, 0, 4, SocketFlags.None, ref endPointFrom, recv, so);
 
-                DoClick(BitConverter.ToInt32(so.buffer, 0));
+                    DoClick(BitConverter.ToInt32(so.buffer, 0));
+                } catch(Exception) {
+                    //MessageBox.Show("Server went off");
+                }
+                
             }, state);
 
+        }
+
+        public void Dispose() {
+            try {
+                _socket.Shutdown(SocketShutdown.Both);
+                _socket.Close();
+                running = false;
+            } catch(Exception) {
+                MessageBox.Show("Cannot shutdown");
+
+            }
+            
         }
 
         private static InputSimulator inputSimulator = new InputSimulator();
@@ -79,7 +93,7 @@ namespace osu_keypad_server {
             WindowsInput.Native.VirtualKeyCode vcKeyB = (WindowsInput.Native.VirtualKeyCode)MainForm.keyB;
 
 
-            Console.WriteLine(whichKey);
+            //Console.WriteLine(whichKey);
             if (whichKey == 0) {//a down
                 inputSimulator.Keyboard.KeyDown(vcKeyA);
             }

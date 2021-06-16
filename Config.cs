@@ -37,14 +37,20 @@ namespace osu_keypad_server {
 
         public ConfigData LoadConfig() {
             var xs = new XmlSerializer(typeof(ConfigData));
+            try {
+                using (var sr = new StreamReader(path)) {
+                    var data = (ConfigData)xs.Deserialize(sr);
+                    return data;
+                    //MainForm.updateInfoInWindow(data.ip, data.a, data.b);
 
-            using (var sr = new StreamReader(path)) {
-                var data = (ConfigData)xs.Deserialize(sr);
-                return data;
-                //MainForm.updateInfoInWindow(data.ip, data.a, data.b);
 
-
+                }
             }
+            catch(Exception) {
+                MessageBox.Show("Cannot open config file. Generating one.");
+            }
+            return new ConfigData("192.168.0.101", Keys.Z, Keys.X);
+            
            
         }
 
