@@ -27,10 +27,6 @@ namespace osu_keypad_server {
             return _instance;
         }
 
-
-        
-        
-
         public ConfigData LoadConfig() {
             var xs = new XmlSerializer(typeof(ConfigData));
             try {
