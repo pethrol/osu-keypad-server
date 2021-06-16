@@ -87,7 +87,9 @@ namespace osu_keypad_server {
             WindowsInput.Native.VirtualKeyCode vcKeyA = (WindowsInput.Native.VirtualKeyCode)MainForm.keyA;
 
             WindowsInput.Native.VirtualKeyCode vcKeyB = (WindowsInput.Native.VirtualKeyCode)MainForm.keyB;
-
+            if(whichKey == -1) {
+                MessageBox.Show("Communication from input device is working.", "Handshake received");
+            }
 
             //Console.WriteLine(whichKey);
             if (whichKey == 0) {//a down
