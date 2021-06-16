@@ -5,3 +5,5 @@ It is emulating keypresses to osu! by using InputSimulator by Michael Noonan. ht
 
 HOW TO START USING THIS
 - work in progress
+
+Thanks for Wrona#2741 for providing the icons.
