@@ -7,4 +7,4 @@ HOW TO START USING THIS
 
 
 
-Thanks Wrona#2741 for providing the icon.
+Thanks to Wrona#2741 for providing the icon.
