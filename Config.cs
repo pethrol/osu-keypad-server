@@ -39,7 +39,7 @@ namespace osu_keypad_server {
                 }
             }
             catch(Exception) {
-                MessageBox.Show("Cannot open config file. Generating one.");
+                MessageBox.Show("Cannot open config file. Imporing default settings.");
             }
             return new ConfigData("192.168.0.101", Keys.Z, Keys.X);
             
