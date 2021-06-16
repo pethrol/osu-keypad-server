@@ -8,4 +8,4 @@ HOW TO START USING THIS
 
 
 
-Thanks for Wrona#2741 for providing the icon.
+Thanks Wrona#2741 for providing the icon.
